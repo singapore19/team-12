@@ -131,8 +131,177 @@ di = [
         "additionalRemarks": "wear white",
         "risk": "10",
         "homelessCount": 1
-    }
+    },
+    {
+        "lat": 1.35092,
+        "lon": 103.848206,
+        "town": "Bishan",
+        "datetime": "2019-10-02 08:30:00",
+        "gender": "M",
+        "ethnicity": "chinese",
+        "ageGroup": 40,
+        "additionalRemarks": "wear white",
+        "risk": "10",
+        "homelessCount": 1
+    },
+    {
+        "lat": 1.35092,
+        "lon": 103.847206,
+        "town": "Bishan",
+        "datetime": "2019-10-02 08:30:00",
+        "gender": "M",
+        "ethnicity": "chinese",
+        "ageGroup": 40,
+        "additionalRemarks": "wear white",
+        "risk": "10",
+        "homelessCount": 1
+    },
+    {
+        "lat": 1.429666,
+        "lon": 103.835044,
+        "town": "yishun",
+        "datetime": "2019-10-02 08:30:00",
+        "gender": "M",
+        "ethnicity": "chinese",
+        "ageGroup": 40,
+        "additionalRemarks": "wear white",
+        "risk": "10",
+        "homelessCount": 1
+    },
+    {
+        "lat": 1.429666,
+        "lon": 103.835144,
+        "town": "yishun",
+        "datetime": "2019-10-02 08:30:00",
+        "gender": "M",
+        "ethnicity": "chinese",
+        "ageGroup": 40,
+        "additionalRemarks": "wear white",
+        "risk": "10",
+        "homelessCount": 1
+    },
+    {
+        "lat": 1.429666,
+        "lon": 103.835544,
+        "town": "yishun",
+        "datetime": "2019-10-02 08:30:00",
+        "gender": "M",
+        "ethnicity": "chinese",
+        "ageGroup": 40,
+        "additionalRemarks": "wear white",
+        "risk": "10",
+        "homelessCount": 1
+    },
+    {
+        "lat": 1.429566,
+        "lon": 103.835144,
+        "town": "yishun",
+        "datetime": "2019-10-02 08:30:00",
+        "gender": "M",
+        "ethnicity": "chinese",
+        "ageGroup": 40,
+        "additionalRemarks": "wear white",
+        "risk": "10",
+        "homelessCount": 1
+    },
+    {
+        "lat": 1.371406,
+        "lon": 103.892533,
+        "town": "Hougang",
+        "datetime": "2019-10-02 08:30:00",
+        "gender": "M",
+        "ethnicity": "chinese",
+        "ageGroup": 40,
+        "additionalRemarks": "wear white",
+        "risk": "10",
+        "homelessCount": 1
+    },
+    {
+        "lat": 1.371406,
+        "lon": 103.892433,
+        "town": "Hougang",
+        "datetime": "2019-10-02 08:30:00",
+        "gender": "M",
+        "ethnicity": "chinese",
+        "ageGroup": 40,
+        "additionalRemarks": "wear white",
+        "risk": "10",
+        "homelessCount": 1
+    },
+    {
+        "lat": 1.373406,
+        "lon": 103.892533,
+        "town": "Hougang",
+        "datetime": "2019-10-02 08:30:00",
+        "gender": "M",
+        "ethnicity": "chinese",
+        "ageGroup": 40,
+        "additionalRemarks": "wear white",
+        "risk": "10",
+        "homelessCount": 1
+    },
+    {
+        "lat": 1.276111,
+        "lon": 103.791893,
+        "town": "Pasir Panjang",
+        "datetime": "2019-10-02 08:30:00",
+        "gender": "M",
+        "ethnicity": "chinese",
+        "ageGroup": 40,
+        "additionalRemarks": "wear white",
+        "risk": "10",
+        "homelessCount": 1
+    },
+    {
+        "lat": 1.276311,
+        "lon": 103.791793,
+        "town": "Pasir Panjang",
+        "datetime": "2019-10-02 08:30:00",
+        "gender": "M",
+        "ethnicity": "chinese",
+        "ageGroup": 40,
+        "additionalRemarks": "wear white",
+        "risk": "10",
+        "homelessCount": 1
+    },
+    {
+        "lat": 1.332405,
+        "lon": 103.847436,
+        "town": "Toa Payoh",
+        "datetime": "2019-10-02 08:30:00",
+        "gender": "M",
+        "ethnicity": "chinese",
+        "ageGroup": 40,
+        "additionalRemarks": "wear white",
+        "risk": "10",
+        "homelessCount": 1
+    },
+    {
+        "lat": 1.332405,
+        "lon": 103.847536,
+        "town": "Toa Payoh",
+        "datetime": "2019-10-02 08:30:00",
+        "gender": "M",
+        "ethnicity": "chinese",
+        "ageGroup": 40,
+        "additionalRemarks": "wear white",
+        "risk": "10",
+        "homelessCount": 1
+    },
+    {
+        "lat": 1.332305,
+        "lon": 103.847436,
+        "town": "Toa Payoh",
+        "datetime": "2019-10-02 08:30:00",
+        "gender": "M",
+        "ethnicity": "chinese",
+        "ageGroup": 40,
+        "additionalRemarks": "wear white",
+        "risk": "10",
+        "homelessCount": 1
+    },
 ]
+
 
 def get_d():
     return di
