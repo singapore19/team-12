@@ -1,3 +1,7 @@
+
+
+from flask_cors import CORS, cross_origin
+
 from flask import Flask, render_template,request,redirect,url_for # For flask implementation
 from pymongo import MongoClient # Database connector
 from bson.objectid import ObjectId # For ObjectId to work
@@ -7,7 +11,6 @@ from bson.json_util import dumps
 from datetime import datetime
 from flask import jsonify
 from find_mrt import find_mrt
-from flask_cors import CORS
 
 mongodb_host = 'localhost'
 mongodb_port = 27017
@@ -16,7 +19,8 @@ db = client.report    #Select the database
 reports = db.reports #Select the collection
 
 app = Flask(__name__)
-CORS(app)
+app.config['CORS_HEADERS']='Content-Type'
+CORS(app, support_credentials=True)
 title = "reports"
 heading = "reports for homeless"
 #modify=ObjectId()
@@ -32,6 +36,7 @@ def lists ():
 	return dumps(reports_list)
 
 @app.route("/create", methods=['POST'])
+@cross_origin(support_credentials=True)
 def create():
 	req = request.json
 	lat = req["lat"]
@@ -56,18 +61,23 @@ def create():
 def patch_report(page_id):
 	req = request.json
 	pageid = str(page_id)
-
+	print(pageid)
+	print(req)
+	print(type(req))
+	print(type(pageid))
 	doc = reports.find({"id": pageid})
+	print("DOCCCCCC")
+	print(doc[0])
+	oldreq = doc[0]
 
-	gender = req["gender"]
-	ageGroup = req["ageGroup"]
-	additionalRemarks = req["additionalRemarks"]
-	ethnicity = req["ethnicity"]
-	risk = req["risk"]
-	homelessCount = req["homelessCount"]
-	d = { "gender": gender, "ethnicity": ethnicity,
-		 "ageGroup": ageGroup, "additionalRemarks": additionalRemarks,
-		 "risk": risk, "homelessCount": homelessCount}
+	oldreq["gender"] = req["gender"]
+	oldreq["ageGroup"] = req["ageGroup"]
+	oldreq["additionalRemarks"] = req["additionalRemarks"]
+	oldreq["ethnicity"] = req["ethnicity"]
+	oldreq["risk"] = req["risk"]
+	oldreq["homelessCount"] = req["homelessCount"]
+	reports.remove({"id": str(pageid)})
+	reports.insert(oldreq)
 	return dumps("patch!")
 
 
