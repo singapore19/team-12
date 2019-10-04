@@ -5,6 +5,9 @@ import 'antd/dist/antd.css';
 import './index.css';
 import { Card, Col, Row , Button, Radio, Form, Icon, Input, Upload, Rate, Switch} from 'antd';
 import ApiWrapper from './components/Map/MapLocation.js'
+import secondPage from './components/secondPage.js'
+import thirdPage from './components/thirdPage.js'
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 
 function beforeUpload(file) {
@@ -55,6 +58,26 @@ class App extends Component {
 
   return (
     <div style={{ background: '#ECECEC', padding: '30px' }}>
+      <Router>
+      <div>
+        <ul>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/second">Second</Link>
+          </li>
+          <li>
+            <Link to="/third">Third</Link>
+          </li>
+        </ul>
+
+        <hr />
+
+        <Route path="/second" component={secondPage} />
+        <Route path="/second" component={thirdPage} />
+      </div>
+    </Router>
     <Row gutter={16}>
       <Col span={12}>
        <Button type="primary" block size="large">
@@ -78,7 +101,7 @@ class App extends Component {
 
     
     <Button type="primary" block size="large">
-      Locate Me
+
     </Button>
 
 
