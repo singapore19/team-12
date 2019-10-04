@@ -1,3 +1,4 @@
 FLASK==1.0.2
 BSON
 PYMONGO
+flask-cors

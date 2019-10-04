@@ -1,3 +1,7 @@
+
+
+from flask_cors import CORS, cross_origin
+
 from flask import Flask, render_template,request,redirect,url_for # For flask implementation
 from pymongo import MongoClient # Database connector
 from bson.objectid import ObjectId # For ObjectId to work
@@ -6,6 +10,7 @@ import os
 from bson.json_util import dumps
 from datetime import datetime
 from flask import jsonify
+from find_mrt import find_mrt
 
 mongodb_host = 'localhost'
 mongodb_port = 27017
@@ -14,6 +19,8 @@ db = client.report    #Select the database
 reports = db.reports #Select the collection
 
 app = Flask(__name__)
+app.config['CORS_HEADERS']='Content-Type'
+CORS(app, support_credentials=True)
 title = "reports"
 heading = "reports for homeless"
 #modify=ObjectId()
@@ -29,24 +36,50 @@ def lists ():
 	return dumps(reports_list)
 
 @app.route("/create", methods=['POST'])
+@cross_origin(support_credentials=True)
 def create():
+	req = request.json
+	lat = req["lat"]
+	lon = req["lon"]
+	id = req["id"]
+	# id = request.values.get("id")
 
-	lat = request.values.get("lat")
-	lon = request.values.get("lon")
-	town = request.values.get("town")
 	from datetime import datetime
 	datetime = "{:%B %d, %Y}".format(datetime.now())
-	gender = request.values.get("gender")
-	ethnicity = request.values.get("lon")
-	ageGroup = request.values.get("ageGroup")
-	additionalRemarks = request.values.get("additionalRemarks")
-	risk = request.values.get("risk")
-	homelessCount = request.values.get("homelessCount")
-	d = {"lat": lat, "lon": lon, "town":town, "datetime":datetime, "gender":gender, "ethnicity": ethnicity, "ageGroup":ageGroup, "additionalRemarks":additionalRemarks,
-		 "risk":risk, "homelessCount":homelessCount}
+	print(lat, lon)
+	print("&&&&&")
+	# print(id)
+	town = find_mrt(lat, lon)
+	print(town)
+	d = {"lat": lat, "lon": lon,  "datetime":datetime, "town": town, "id": id}
 
 	reports.insert(d)
 	return dumps("ok")
+
+
+@app.route('/report/<page_id>', methods=['PATCH'])
+def patch_report(page_id):
+	req = request.json
+	pageid = str(page_id)
+	print(pageid)
+	print(req)
+	print(type(req))
+	print(type(pageid))
+	doc = reports.find({"id": pageid})
+	print("DOCCCCCC")
+	print(doc[0])
+	oldreq = doc[0]
+
+	oldreq["gender"] = req["gender"]
+	oldreq["ageGroup"] = req["ageGroup"]
+	oldreq["additionalRemarks"] = req["additionalRemarks"]
+	oldreq["ethnicity"] = req["ethnicity"]
+	oldreq["risk"] = req["risk"]
+	oldreq["homelessCount"] = req["homelessCount"]
+	reports.remove({"id": str(pageid)})
+	reports.insert(oldreq)
+	return dumps("patch!")
+
 
 
 if __name__ == "__main__":
