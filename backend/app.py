@@ -11,12 +11,14 @@ from bson.json_util import dumps
 from datetime import datetime
 from flask import jsonify
 from find_mrt import find_mrt
+from insert_data import get_d
 
 mongodb_host = 'localhost'
 mongodb_port = 27017
 client = MongoClient(mongodb_host, mongodb_port)    #Configure the connection to the database
 db = client.report    #Select the database
 reports = db.reports #Select the collection
+dummies = client.dummy.dummies
 
 app = Flask(__name__)
 app.config['CORS_HEADERS']='Content-Type'
@@ -25,9 +27,13 @@ title = "reports"
 heading = "reports for homeless"
 #modify=ObjectId()
 
-@app.route('/', methods=['GET'])
-def foo():
-    return jsonify("hello")
+@app.route('/dummyone', methods=['GET'])
+def dummy():
+	di = get_d()
+
+	return dumps(di)
+
+
 # return a lsit
 
 @app.route("/list", methods=['GET'])
@@ -79,6 +85,7 @@ def patch_report(page_id):
 	reports.remove({"id": str(pageid)})
 	reports.insert(oldreq)
 	return dumps("patch!")
+
 
 
 
