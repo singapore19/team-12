@@ -29,7 +29,18 @@ export class MapContainer extends React.Component {
       if (loading) {
         return null;
       }
-      console.log(this.state.userLocation.lat,this.state.userLocation.lng,new Date());
+      let data = new FormData();
+      const userInfo = {
+          userLat:this.state.userLocation.lat,
+          userLong:this.state.userLocation.lng,
+          userDate:new Date()
+      }
+      data.append("myjsonkey", JSON.stringify(userInfo));
+
+        fetch('http://54.169.146.186:5000/create', {
+            method: 'POST',
+            body: data
+        }).then((resp)=> console.log(resp))
       return <Map google={google} initialCenter={userLocation} zoom={10} />;
     }
   }
