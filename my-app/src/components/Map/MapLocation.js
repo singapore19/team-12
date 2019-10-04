@@ -1,16 +1,17 @@
 import React from "react";
 import { GoogleApiWrapper, Map } from "google-maps-react";
 
+
 export class MapContainer extends React.Component {
-    state = { userLocation: { lat: 32, lng: 32 }, loading: true };
+    state = { userLocation: { id : 8888 , lat: 32, lng: 32 }, loading: true };
   
     componentDidMount(props) {
       navigator.geolocation.getCurrentPosition(
         position => {
-          const { latitude, longitude } = position.coords;
+          const {latitude, longitude } = position.coords;
   
           this.setState({
-            userLocation: { lat: latitude, lng: longitude },
+            userLocation: { id : "8888" , lat: latitude, lng: longitude },
             loading: false
           });
         },
@@ -30,19 +31,31 @@ export class MapContainer extends React.Component {
   
       let data = new FormData();
       const userInfo = {
-          userLat: this.state.userLocation.lat,
-          userLng: this.state.userLocation.lng,
-          userDate: new Date()
+          id:  this.state.userLocation.id,
+          lat: this.state.userLocation.lat,
+          lon: this.state.userLocation.lng,
+          // userDate: new Date()
       };
-      data.append("myjsonkey", JSON.stringify(userInfo));
-      
-      fetch('http://54.169.146.186:5000/create', {
-          method: 'POST',
-          body: data
-      })
+
+      console.log(userInfo)
+      xhr(userInfo);
       return <Map google={google} initialCenter={userLocation} zoom={10} />;
     }
   }
+
+  async function xhr(userInfo) {try {
+    const response = await fetch('http://54.169.146.186:5000/create', {
+      method: 'POST', // or 'PUT'
+      body: JSON.stringify(userInfo), // data can be `string` or {object}!
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+    const json = await response.json();
+    console.log('Success:', JSON.stringify(json));
+  } catch (error) {
+    console.error('Error:', error);
+  }}
 
 const ApiWrapper = GoogleApiWrapper({
     apiKey: "AIzaSyBZHNoU7fFhiF-1CcjoDJvZFz0FVzaULiI"
