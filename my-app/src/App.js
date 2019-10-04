@@ -4,7 +4,7 @@ import { DatePicker, message } from 'antd';
 import 'antd/dist/antd.css';
 import './index.css';
 import { Card, Col, Row , Button, Radio, Form, Icon, Input, Upload} from 'antd';
-import renderEmpty from '../node_modules/antd/lib/config-provider/renderEmpty';
+import ApiWrapper from './components/Map/MapLocation.js'
 
 
 function beforeUpload(file) {
@@ -59,22 +59,30 @@ class App extends Component {
     </Button>
       </Col>
 
-
       <Col span={12}>
-      <Button type="primary" block size="large">
-      Notify Now
-    </Button>
-    <Card size="large" style={{ width: "100%" }}>
+      <Row>
+        <Col>
+        <Button type="primary" block size="large">
+          Notify Now
+        </Button>
+        </Col>
+      </Row>
 
-    MAP HERE
-    </Card>
+      <Row>
+        <Col>
+        <div style={{ marginBottom:100 ,width:"100%", height:"auto", overflowY: "scroll"}}>
+          <ApiWrapper/>    
+        </div>
+      </Col>
+        </Row>
+
+    
     <Button type="primary" block size="large">
       Locate Me
     </Button>
 
 
    <Form layout="inline">
-
           <div style={{ marginTop: 16 }}>
         <Form.Item label="Gender">
         <Radio.Group buttonStyle="solid">
