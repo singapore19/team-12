@@ -4,43 +4,31 @@ import HighchartsReact from 'highcharts-react-official';
 
 const options = {
   title: {
-       text: 'Combination chart'
+       text: 'National Rough Sleepers Count'
    },
    xAxis: {
        categories: ['Jan', 'Feb', 'Mar', 'April', 'May']
    },
    labels: {
-       items: [{
-           html: 'Total homeless population',
-           style: {
-               left: '50px',
-               top: '18px',
-               color: ( // theme
-                   Highcharts.defaultOptions.title.style &&
-                   Highcharts.defaultOptions.title.style.color
-               ) || 'black'
-           }
-       }]
+       items: []
    },
    series: [{
        type: 'column',
        name: 'Population',
-       data: [32, 23, 12, 33, 14]
+       data: [320, 203, 102, 303, 104]
    }
    ,
    {
            type: 'spline',
-           name: 'Average',
-           data: [32, 23, 12, 33, 14],
+           name: 'Trend',
+           data: [320, 203, 102, 303, 104],
            marker: {
                lineWidth: 2,
                lineColor: Highcharts.getOptions().colors[3],
                fillColor: 'white'
            }
        },
-    {
-
-       }],
+    ],
        center: [100, 80],
        size: 100,
        showInLegend: false,

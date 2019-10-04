@@ -27,7 +27,7 @@ class SidePanel extends React.Component {
         </Row>
         <Row>
           <Col>
-            <GroupedChart />
+            <GroupedChart title={this.props.selectedTown} averageLine={this.props.averageLine} columnTownMale={this.props.columnTownMale} columnTownFemale={this.props.columnTownFemale}/>
           </Col>
         </Row>
       </div>
