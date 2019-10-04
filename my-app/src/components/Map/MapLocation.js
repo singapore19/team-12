@@ -1,5 +1,6 @@
 import React from "react";
 import { GoogleApiWrapper, Map } from "google-maps-react";
+import Time from 'react-time';
 
 export class MapContainer extends React.Component {
     state = { userLocation: { lat: 32, lng: 32 }, loading: true };
@@ -13,6 +14,7 @@ export class MapContainer extends React.Component {
             userLocation: { lat: latitude, lng: longitude },
             loading: false
           });
+          
         },
         () => {
           this.setState({ loading: false });
@@ -27,7 +29,7 @@ export class MapContainer extends React.Component {
       if (loading) {
         return null;
       }
-  
+      console.log(this.state.userLocation.lat,this.state.userLocation.lng,new Date());
       return <Map google={google} initialCenter={userLocation} zoom={10} />;
     }
   }
