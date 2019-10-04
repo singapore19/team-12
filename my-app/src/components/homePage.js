@@ -9,7 +9,8 @@ class homePage extends Component {
 
   render() {
       return(
-
+        <div style={{ marginTop: 16, marginBottom:16 ,width:"100%", height:"50vh", }}>
+        <div type="flex" justify="space-around" align="middle">
     <Row gutter={16}>
       <Col span={12}>
        <Button type="primary" block size="large">
@@ -25,6 +26,8 @@ class homePage extends Component {
         </Link>
       </Col>
     </Row>
+    </div>
+    </div>
       )
   }
 }

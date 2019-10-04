@@ -12,12 +12,11 @@ import thirdPage from './components/thirdPage.js'
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 class App extends Component {
-  
   render(){
   return (
     <div style={{ padding: '30px', height:"100%", width:"100%" }}>
       <Router>
-        <Route apth = "/home" component={homePage}/>
+        <Route path = "/home" component={homePage}/>
         <Route path ="/first" component={firstPage}/>
         <Route path="/second" component={secondPage} />
         <Route path="/third" component={thirdPage} />
