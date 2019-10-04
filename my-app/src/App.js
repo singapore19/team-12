@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { DatePicker, message } from 'antd';
 import 'antd/dist/antd.css';
 import './index.css';
-import { Card, Col, Row , Button, Radio, Form, Icon, Input, Upload} from 'antd';
+import { Card, Col, Row , Button, Radio, Form, Icon, Input, Upload, Rate, Switch} from 'antd';
 import ApiWrapper from './components/Map/MapLocation.js'
 
 
@@ -19,6 +19,9 @@ function beforeUpload(file) {
   return isJpgOrPng && isLt2M;
 }
 
+function onChange(checked) {
+  console.log(`switch to ${checked}`);
+}
 
 function getBase64(img, callback) {
   const reader = new FileReader();
@@ -60,17 +63,14 @@ class App extends Component {
       </Col>
 
       <Col span={12}>
-      <Row>
-        <Col>
+
         <Button type="primary" block size="large">
           Notify Now
         </Button>
-        </Col>
-      </Row>
 
       <Row>
         <Col>
-        <div style={{ marginBottom:100 ,width:"100%", height:"auto", overflowY: "scroll"}}>
+        <div style={{ marginTop: 16, marginBottom:16 ,width:"100%", height:"50vh", }}>
           <ApiWrapper/>    
         </div>
       </Col>
@@ -100,22 +100,42 @@ class App extends Component {
         <Radio.Button value="malay" >Malay </Radio.Button>
         <Radio.Button value="indian">Indian</Radio.Button>
         <Radio.Button value="others">Others</Radio.Button>
-
-      </Radio.Group>
+        </Radio.Group>
         </Form.Item>
         </div>
 
         <div style={{ marginTop: 16 }}>
-        {/* <Form.Item> */}
+        <Form.Item label="Appearance of health">
+        <Rate  allowHalf defaultValue={2.5}/>
+        </Form.Item>
+    </div>
+
+        <div style={{ marginTop: 16 }}>
+        <Form.Item label="Nunber of belongings">
+        <Rate  allowHalf defaultValue={2.5}/>
+        </Form.Item>
+    </div>
+
+
+
+     <div style={{ marginTop: 16 }}>
+     <Form.Item label="Any young children">
+  <Switch defaultChecked onChange={onChange} />
+        </Form.Item>
+        </div>
+
+        <div style={{ marginTop: 16 }}>
           <Button type="primary"  block size="large" htmlType="submit">
             More
           </Button>
-        {/* </Form.Item> */}
         </div>
+
       </Form>
 
     <div style={{ marginTop: 16 }}>
    <Form layout="inline">
+   <div style={{ marginTop: 16 }}>
+
     <Upload
         name="avatar"
         listType="picture-card"
@@ -127,8 +147,23 @@ class App extends Component {
       >
         {imageUrl ? <img src={imageUrl} alt="avatar" style={{ width: '100%' }} /> : uploadButton}
       </Upload>
+    </div>
+    <div style={{ marginTop: 16 }}>
+      <Input placeholder="Other details" />
+      </div>
+
+
+      <div style={{ marginTop: 16 }}>
+          <Button type="primary"  block size="large" htmlType="submit">
+            Submit
+          </Button>
+        </div>
+
+
    </Form>
 </div>
+
+
 
       </Col>
     </Row>
