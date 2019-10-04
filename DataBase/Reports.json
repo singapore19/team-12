@@ -1,0 +1,109 @@
+[
+    {
+        "type": "header",
+        "version": "4.7.4",
+        "comment": "Export to JSON plugin for PHPMyAdmin"
+    },
+    {
+        "type": "database",
+        "name": "team12"
+    },
+    {
+        "type": "table",
+        "name": "Reports",
+        "database": "team12",
+        "data": [
+            {
+                "Lat": "1.282535",
+                "Lon": "103.845387",
+                "Town": "Chinatown",
+                "DateTime": "2019-01-30 00:38:55",
+                "Gender": "Male",
+                "Ethnicity": "Chinese",
+                "AgeGroup": "~40",
+                "Risk": "High",
+                "Additional Remarks": "White shirt with 1 kid",
+                "HomelessCount": "2",
+                "Index": "1"
+            },
+            {
+                "Lat": "1.283283",
+                "Lon": "103.845735",
+                "Town": "Chinatown",
+                "DateTime": "2019-01-30 01:45:55",
+                "Gender": "Male",
+                "Ethnicity": "Chinese",
+                "AgeGroup": "~60",
+                "Risk": "High",
+                "Additional Remarks": "White shirt",
+                "HomelessCount": "1",
+                "Index": "2"
+            },
+            {
+                "Lat": "1",
+                "Lon": "104",
+                "Town": "Chinatown",
+                "DateTime": "2019-01-31 02:38:55",
+                "Gender": "Female",
+                "Ethnicity": "Chinese",
+                "AgeGroup": "~40",
+                "Risk": "High",
+                "Additional Remarks": "blue shirt",
+                "HomelessCount": "1",
+                "Index": "3"
+            },
+            {
+                "Lat": "1",
+                "Lon": "104",
+                "Town": "Chinatown",
+                "DateTime": "2019-01-31 02:40:55",
+                "Gender": "Female",
+                "Ethnicity": "Chinese",
+                "AgeGroup": "~50",
+                "Risk": "High",
+                "Additional Remarks": "yellow shirt",
+                "HomelessCount": "1",
+                "Index": "4"
+            },
+            {
+                "Lat": "1.28298",
+                "Lon": "103.846",
+                "Town": "Chinatown",
+                "DateTime": "2019-01-31 02:38:55",
+                "Gender": "Female",
+                "Ethnicity": "Chinese",
+                "AgeGroup": "~40",
+                "Risk": "High",
+                "Additional Remarks": "Red shirt",
+                "HomelessCount": "1",
+                "Index": "5"
+            },
+            {
+                "Lat": "1.28298",
+                "Lon": "103.846",
+                "Town": "Chinatown",
+                "DateTime": "2019-01-31 01:38:55",
+                "Gender": "Male",
+                "Ethnicity": "Chinese",
+                "AgeGroup": "~50",
+                "Risk": "High",
+                "Additional Remarks": "Blue shirt",
+                "HomelessCount": "1",
+                "Index": "6"
+            },
+            {
+                "Lat": "1.28298",
+                "Lon": "103.846",
+                "Town": "Chinatown",
+                "DateTime": "2019-02-19 01:38:55",
+                "Gender": "Female",
+                "Ethnicity": "Chinese",
+                "AgeGroup": "~50",
+                "Risk": "High",
+                "Additional Remarks": "blue shirt",
+                "HomelessCount": "1",
+                "Index": "7"
+            }
+        ]
+    }
+]
